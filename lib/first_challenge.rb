@@ -2,7 +2,7 @@ def first_challenge
   contacts = {
     "Jon Snow" => {
       name: "Jon",
-      email: "jon_snow@thewall.we", 
+      email: "jon_snow@thewall.we",
       favorite_icecream_flavors: ["chocolate", "vanilla", "mint chip"],
       knows: nil
     },
@@ -14,9 +14,16 @@ def first_challenge
   }
 
   #your code here
+contacts.each do |person, data|#drop down first level (person is Jon Snow and Freddy Mercury with their data being...name,email etc.)
 
+  data.each do |attribute, value|#drop down to second level through data side where attribute is: name, email, etc. & Value is: the respective values in each attribute.
 
-  #remember to return your newly altered contacts hash!
-  contacts
+    if attribute == :favorite_icecream_flavors# comparing attributes to find the one equal to :favorite_icecream_flavors
+        value.delete_if{|flavor| flavor == "strawberry"}#deletes flavor between " ".
+
+    end
+  end
 end
-
+  #remember to return your newly altered contacts hash!
+ contacts
+end
